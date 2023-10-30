@@ -14,7 +14,9 @@ colororder(['k'; 'k']);	%y-axes colors
 
 
 yyaxis left;
+% plot
 plot(xValue, yPlot, 'LineWidth', 2, 'Color', 'r');
+% errorbar
 errorbar(xValue, yErrorbar, yErrorbarSize, 'LineStyle', 'none', 'LineWidth', 2, 'Color', 'r');
 ylim([0,100]);
 yticks([0, 30, 50, 100, 110]);
@@ -23,6 +25,7 @@ set(gca, 'yColor', 'r');
 
 
 yyaxis right;
+% scatter
 scatter(xValue, yScatter, 50, 'b', 'filled');
 set(gca, 'YScale', 'log');
 ylabel("right label");
@@ -40,8 +43,8 @@ legend(['legend1'; 'legend2'; 'legend3']);
 set(gca, 'FontSize', 20);
 set(gca, 'LineWidth', 1.5);
 
-
-print(gcf, 'plot.png', '-dpng', '-r300');
+% output as png
+% print(gcf, 'plot.png', '-dpng', '-r300');
 
 
 MatlabDefaultColor= ...
