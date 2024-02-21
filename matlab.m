@@ -37,7 +37,7 @@ xlabel("X label");
 set(gca, 'XColor', 'k');
 
 
-legend(['legend1'; 'legend2'; 'legend3']);
+legend({'legend1'; 'legend2'; 'legend3'});
 
 
 set(gca, 'FontSize', 20);
