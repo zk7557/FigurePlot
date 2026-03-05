@@ -1,11 +1,14 @@
 xValue = 1:10;
-yPlot = xValue *10;
+yPlot = xValue.^2;
 
 yErrorbar = 100 ./ xValue;
 yErrorbarSize = ones(1,10) * 5;
 
 yScatter = xValue .* xValue;
 
+yBar = 10 - xValue;
+
+yViolin = rand(10,10) .* xValue *5;
 
 
 figure(99); hold on;
@@ -15,9 +18,17 @@ colororder(['k'; 'k']);	%y-axes colors
 
 yyaxis left;
 % plot
-plot(xValue, yPlot, 'LineWidth', 2, 'Color', 'r');
+plot(xValue, yPlot,  'LineStyle','-', 'LineWidth', 2, 'Color', 'r');
+
 % errorbar
 errorbar(xValue, yErrorbar, yErrorbarSize, 'LineStyle', 'none', 'LineWidth', 2, 'Color', 'r');
+
+% bargraph
+bar(xValue, yBar, "FaceColor", 'g', "LineWidth", 2, 'EdgeColor','g', 'FaceAlpha', 0.5);
+
+% violin plot
+violinplot(xValue, yViolin, 'DensityWidth', 0.8, 'DensityDirection','both', 'LineWidth', 1, 'FaceColor', 'c');
+
 ylim([0,100]);
 yticks([0, 30, 50, 100, 110]);
 ylabel("left label");
@@ -37,10 +48,9 @@ xlabel("X label");
 set(gca, 'XColor', 'k');
 
 
-legend({'legend1'; 'legend2'; 'legend3'});
+legend({'legend1'; 'legend2'; 'legend3'}, "LineWidth", 1);
 
-
-set(gca, 'FontSize', 20);
+set(gca, 'FontSize', 18);
 set(gca, 'LineWidth', 1.5);
 
 % output as png
